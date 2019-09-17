@@ -5,7 +5,7 @@ import { Drink } from '@second-pass/core-data';
 @Component({
   selector: 'second-pass-drink-details',
   templateUrl: './drink-details.component.html',
-  styleUrls: ['./drink-details.component.css']
+  styleUrls: ['./drink-details.component.scss']
 })
 export class DrinkDetailsComponent {
   selectedDrink: Drink;

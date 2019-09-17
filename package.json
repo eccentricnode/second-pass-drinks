@@ -7,6 +7,7 @@
     "nx": "nx",
     "start": "ng serve",
     "build": "ng build",
+    "deploy:drinks-app": "ng build --project dashboard && cp ./dist/apps/dashboard/index.html ./dist/apps/dashboard/200.html && surge ./dist/apps/dashboard/ https://new-drinks-list.surge.sh/",
     "test": "ng test",
     "lint": "nx workspace-lint && ng lint",
     "e2e": "ng e2e",
