@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-header>
     <mat-card-title *ngIf="determineUpdate(); else submitRef">
-      Update {{ selectedDrink }}'s Info
+      Update {{ selectedDrink.name }}'s Info
     </mat-card-title>
     <ng-template #submitRef>
       <mat-card-title>
