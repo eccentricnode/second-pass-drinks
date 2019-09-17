@@ -1,0 +1,62 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title *ngIf="determineUpdate(); else submitRef">
+      Update {{ selectedDrink }}'s Info
+    </mat-card-title>
+    <ng-template #submitRef>
+      <mat-card-title>
+        Add drink
+      </mat-card-title>
+    </ng-template>
+  </mat-card-header>
+  <form [formGroup]="group" (submit)="submit(form)" #form="ngForm">
+    <mat-card-content>
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Enter Name"
+          formControlName="name"
+        />
+        <mat-error *ngIf="validateField('name', form)"></mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Caffeine</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Enter Amt of Caffeine"
+          formControlName="caffeine"
+        />
+        <mat-error *ngIf="validateField('caffeine', form)"></mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Sugar</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Enter Sugar"
+          formControlName="sugar"
+        />
+        <mat-error *ngIf="validateField('sugar', form)"></mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Founder</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Enter Founder"
+          formControlName="founder"
+        />
+        <mat-error *ngIf="validateField('founder', form)"></mat-error>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button type="submit" color="primary">
+            {{determineUpdate() ? 'Update' : 'Submit'}}
+        </button>
+        <button mat-raised-button type="reset" color="accent" (click)="cancel()">Cancel</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

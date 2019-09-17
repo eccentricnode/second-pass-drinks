@@ -1,0 +1,18 @@
+<div class="wrapper">
+    <div class="list-grid">
+        <second-pass-drinks-list
+            [drinks]="drinks$ | async"
+            (selected)="selectDrink($event)"
+            (deleted)="removeDrink($event)">
+        </second-pass-drinks-list>
+    </div>
+
+    <div class="details-drinks">
+        <second-pass-drink-details
+            [group]="form"
+            [drink]="selectedDrink$ | async"
+            (submitted)="saveDrink($event)"
+            (cancelled)="reset($event)">
+        </second-pass-drink-details>
+    </div>
+</div>

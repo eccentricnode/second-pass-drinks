@@ -1,0 +1,20 @@
+<mat-card>
+    <mat-card-content>
+        <h3 mat-subheader>Drink's</h3>
+        <mat-list *ngIf="drinks.length; else elseBlock">
+            <mat-list-item *ngFor="let drink of drinks" class="mat-list-option"
+                (click)="select(drink)">
+                <h4 mat-line>Name: {{drink.name}}</h4>
+                <span mat-line>Founder: {{drink.founder}}</span>
+                <button mat-mini-fab *ngIf="!readonly" (click)="remove(drink);$event.stopImmediatePropagation()">
+                    <mat-icon>clear</mat-icon>
+                </button>
+            </mat-list-item>
+        </mat-list>
+        <ng-template #elseBlock>
+                <div class="spinner">
+                    <mat-spinner mode="indeterminate"></mat-spinner>
+                </div>
+            </ng-template>
+    </mat-card-content>
+</mat-card>

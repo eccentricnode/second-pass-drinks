@@ -12,7 +12,7 @@ import { DrinksActionTypes } from './drinks.actions';
 @Injectable()
 export class DrinksFacade {
   allDrinks$ = this.store.pipe(select(selectAllDrinks));
-  selectedDrinks$ = this.store.pipe(select(selectCurrentDrink));
+  selectedDrink$ = this.store.pipe(select(selectCurrentDrink));
 
   mutations$ = this.actions$ 
     .pipe(
@@ -29,7 +29,7 @@ export class DrinksFacade {
     this.store.dispatch(new DrinksActions.DrinkSelected(drinkId));
   }
 
-  loadAll() {
+  loadDrinks() {
     this.store.dispatch(new DrinksActions.LoadDrinks());
   }
 

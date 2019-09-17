@@ -12,9 +12,12 @@ import { MaterialModule } from '@second-pass/material';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './routing.module';
 import { LoginComponent } from './login/login.component';
+import { DrinksComponent } from './drinks/drinks.component';
+import { DrinksListComponent } from './drinks/drinks-list/drinks-list.component';
+import { DrinkDetailsComponent } from './drinks/drink-details/drink-details.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
+  declarations: [AppComponent, LoginComponent, DrinksComponent, DrinksListComponent, DrinkDetailsComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

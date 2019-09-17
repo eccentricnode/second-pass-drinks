@@ -1,1 +1,36 @@
-<p>login works!</p>
+<div class="wrapper">
+    <div class="login-grid">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    <h3>Title</h3>
+                </mat-card-title>
+            </mat-card-header>
+            <form [formGroup]="form" #formDir="ngForm" (submit)="login()">
+                <mat-card-content>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Username</mat-label>
+                        <input matInput type="text" placeholder="Enter Username*" formControlName="username">
+                        <mat-error *ngIf="validateField('username', formDir)">
+                            Please verify your username.
+                        </mat-error>
+                        <mat-hint>try "username"</mat-hint>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>password</mat-label>
+                        <input matInput type="text" placeholder="Enter Password*" formControlName="password">
+                        <mat-error *ngIf="validateField('password', formDir)">
+                            Please verify your password.
+                        </mat-error>
+                        <mat-hint>try "password"</mat-hint>
+                    </mat-form-field>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-raised-button type="submit" color="primary" (click)="login()">
+                        Continue
+                    </button>
+                </mat-card-actions>
+            </form>
+        </mat-card>
+    </div>
+</div>

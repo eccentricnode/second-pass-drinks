@@ -1,0 +1,12 @@
+mat-card {
+    mat-card-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    mat-card-actions{
+        display: flex;
+        flex-direction: row-reverse;
+        padding-right: 10px;
+    }
+}

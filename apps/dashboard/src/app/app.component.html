@@ -1,27 +1,27 @@
-<div style="text-align:center">
-  <h1>Welcome to {{ title }}!</h1>
-  <img
-    width="450"
-    src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png"
-  />
-</div>
+<mat-toolbar color="primary">
+  <span>
+    <button mat-mini-fab *ngIf="authService.isAuthenticated()" (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </span>
+  <span>{{title}}</span>
+  <button (click)="routeToLogin()" *ngIf="authService.isAuthenticated()" mat-mini-fab>
+    <mat-icon>person</mat-icon>
+  </button>
+</mat-toolbar>
 
-<p>
-  This is an Angular app built with <a href="https://nx.dev/angular">Nx</a>.
-</p>
-<p>🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**</p>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" class="mat-elevation-z5 toolbar">
+    <nav>
+      <a mat-button class="nav-link" *ngFor="let link of links"
+        [routerLink]="link.path" routerLinkActive="active">
+        <mat-icon>
+          {{link.icon}}
+        </mat-icon>
+          {{link.title}}
+      </a>
+    </nav>
+  </mat-sidenav>
 
-<h2>Quick Start & Documentation</h2>
-
-<ul>
-  <li>
-    <a href="https://nx.dev/angular/getting-started/what-is-nx"
-      >10-minute video showing all Nx features</a
-    >
-  </li>
-  <li>
-    <a href="https://nx.dev/angular/tutorial/01-create-application"
-      >Interactive tutorial</a
-    >
-  </li>
-</ul>
+  <router-outlet></router-outlet>
+</mat-sidenav-container>
