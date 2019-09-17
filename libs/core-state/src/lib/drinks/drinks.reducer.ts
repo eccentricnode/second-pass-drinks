@@ -1,7 +1,7 @@
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 
 import { Drink } from '@second-pass/core-data';
-import { DrinksAction, DrinksActionTypes, Drinks } from './drinks.actions';
+import { DrinksAction, DrinksActionTypes } from './drinks.actions';
 
 export interface DrinksState extends EntityState<Drink> {
   selectedDrinkId: string | null;
@@ -18,7 +18,7 @@ export const initialState: DrinksState = drinksAdapter.getInitialState({
 export function drinksReducer(state: DrinksState = initialState, action: DrinksAction) {
   switch (action.type) {
     case DrinksActionTypes.DRINK_SELECTED: {
-      return Object.assign({}, state, { selectDrinkId: action.payload});
+      return Object.assign({}, state, { selectedDrinkId: action.payload});
     }
 
     case DrinksActionTypes.DRINKS_LOADED: {

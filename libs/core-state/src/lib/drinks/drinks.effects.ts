@@ -11,8 +11,9 @@ import {
   AddDrink,
   DrinkAdded,
   UpdateDrink,
+  DrinkUpdated,
   DeleteDrink,
-  DrinkDeleted
+  DrinkDeleted 
 } from './drinks.actions';
 import { DrinksService, Drink } from '@second-pass/core-data';
 
@@ -40,7 +41,7 @@ export class DrinksEffects {
 
   @Effect() updateDrinks$ = this.dataPersistence.pessimisticUpdate(DrinksActionTypes.UPDATE_DRINK, {
     run: (action: UpdateDrink, state: DrinksState) => {
-      return this.drinksService.update(action.payload).pipe(map((res: Drink) => new UpdateDrink(res)));
+      return this.drinksService.update(action.payload).pipe(map((res: Drink) => new DrinkUpdated(res)));
     },
 
     onError: (action: UpdateDrink, error) => {

@@ -17,7 +17,7 @@ export class DrinksService {
   }
 
   getUrlForId(id) {
-    return `${this.getUrlForId}/${id}`;
+    return `${this.getUrl()}/${id}`;
   }
 
   all() {
